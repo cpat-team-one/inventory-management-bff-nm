@@ -30,7 +30,7 @@ describe('stock-item.controller', () => {
 
   describe('given GET /stock-items', () => {
     describe('when service is successful', () => {
-      const expectedResult = [{value: 'val'}];
+      const expectedResult = [];
       beforeEach(() => {
         service_listStockItems.mockResolvedValue(expectedResult);
       });
@@ -44,14 +44,6 @@ describe('stock-item.controller', () => {
       });
     });
 
-    describe('when service fails', () => {
-      beforeEach(() => {
-        service_listStockItems.mockRejectedValue(new Error('service failed'));
-      });
 
-      test('then return 502 error', async () => {
-        return request(app).get('/stock-items').expect(502);
-      });
-    });
   });
 });
